@@ -73,6 +73,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserResponse getUserById(UUID id) {
+        return mapToResponse(userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found")));
+    }
+
+    @Override
     public List<UserResponse> findAll() {
         return userRepository.findAll().stream()
                 .map(this::mapToResponse)

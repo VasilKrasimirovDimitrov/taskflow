@@ -18,5 +18,7 @@ public interface UserService {
 
     User findByUsername(String username);
 
+    UserResponse getUserById(UUID id);
+
     List<UserResponse> findAll();
 }
